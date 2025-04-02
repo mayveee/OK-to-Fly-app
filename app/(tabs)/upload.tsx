@@ -17,10 +17,13 @@ export default function UploadScreen() {
     const [message1, setMessage1] = useState<string>('');
     const [message2, setMessage2] = useState<string>('');
 
+    /**
+     * 이미지 파일에서 고르는 기능
+     */
     const pickImage = async () => {
         const result = await ImagePicker.launchImageLibraryAsync({
             base64: true,
-            quality: 0.5,
+            quality: 0.9,
         });
 
         if (!result.canceled) {
@@ -30,6 +33,9 @@ export default function UploadScreen() {
         }
     };
 
+    /**
+     * 촬영하는 기능
+     */
     const takePhoto = async () => {
         const permission = await ImagePicker.requestCameraPermissionsAsync();
         if (!permission.granted) {
@@ -39,7 +45,7 @@ export default function UploadScreen() {
 
         const result = await ImagePicker.launchCameraAsync({
             base64: true,
-            quality: 0.5,
+            quality: 0.9,
         });
 
         if (!result.canceled) {
@@ -49,6 +55,10 @@ export default function UploadScreen() {
         }
     };
 
+    /**
+     * 이미지 분석하기 버튼
+     * 서버 호출하고 결과 받아와서 변수에 넣음
+     */
     const analyzeImage = async () => {
         if (!base64Data) return;
         setLoading(true);
