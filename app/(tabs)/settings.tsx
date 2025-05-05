@@ -13,14 +13,14 @@ export default function SettingsScreen() {
             <Text style={styles.chip}>日本語</Text>
         </View>
 
-        <Text style={styles.sectionTitle}>Privacy Policy and Customer Service</Text>
+        <Text style={styles.sectionTitle}>개인정보 처리방침 & 고객지원</Text>
 
         <View style={styles.card}>
             <View style={styles.iconPlaceholder} />
             <View style={{ flex: 1 }}>
-            <Text style={styles.cardTitle}>Privacy Policy</Text>
+            <Text style={styles.cardTitle}>개인정보 처리방침</Text>
             <Text style={styles.cardDesc}>
-                Information regarding how user data is handled and protected
+                사용자 데이터가 어떻게 처리되고 보호되는지에 대한 정보 확인은 여기서
             </Text>
             </View>
         </View>
@@ -28,9 +28,9 @@ export default function SettingsScreen() {
         <View style={styles.card}>
             <View style={styles.iconPlaceholder} />
             <View style={{ flex: 1 }}>
-            <Text style={styles.cardTitle}>Feedback & Reports</Text>
+            <Text style={styles.cardTitle}>피드백 및 문의</Text>
             <Text style={styles.cardDesc}>
-                Support contact and feedback options are available here.
+                물품 인식에 관한 피드백이나 문의는 여기서
             </Text>
             </View>
         </View>

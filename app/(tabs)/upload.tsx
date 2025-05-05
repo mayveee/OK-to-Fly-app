@@ -107,7 +107,7 @@ export default function Upload() {
                 disabled={isLoading}
                 >
                 <Text style={styles.analysisText}>
-                    {isLoading ? '분석 중...' : 'Analysis'}
+                    {isLoading ? '분석 중...' : '분석 요청'}
                 </Text>
             </TouchableOpacity>
 
