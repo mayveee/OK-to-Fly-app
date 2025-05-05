@@ -10,9 +10,12 @@ export default function Result() {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
-        <Stack.Screen options={{ title: 'Scan Result' }} />
-
-        <Text style={styles.header}>AI Analysis Result</Text>
+        <Stack.Screen 
+        options={{ 
+            title: 'AI 분석 결과',
+            headerBackTitle: '홈'
+            }} 
+        />
 
         <View style={styles.imageBox}>
             {imageUri ? (
@@ -60,7 +63,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   container: { flex: 1 },
-  header: { fontSize: 20, fontWeight: 'bold', marginBottom: 20 },
   imageBox: {
     width: '100%',
     height: 500,

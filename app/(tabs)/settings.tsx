@@ -13,13 +13,6 @@ export default function SettingsScreen() {
             <Text style={styles.chip}>日本語</Text>
         </View>
 
-        <Text style={styles.sectionTitle}>Default Airport Setting</Text>
-        <View style={styles.chipRow}>
-            <Text style={styles.chip}>Incheon International Airport</Text>
-            <Text style={styles.chip}>JFK Airport</Text>
-            <Text style={styles.chip}>Heathrow</Text>
-        </View>
-
         <Text style={styles.sectionTitle}>Privacy Policy and Customer Service</Text>
 
         <View style={styles.card}>
@@ -35,9 +28,9 @@ export default function SettingsScreen() {
         <View style={styles.card}>
             <View style={styles.iconPlaceholder} />
             <View style={{ flex: 1 }}>
-            <Text style={styles.cardTitle}>Customer Service</Text>
+            <Text style={styles.cardTitle}>Feedback & Reports</Text>
             <Text style={styles.cardDesc}>
-                Contact details and support information for assistance
+                Support contact and feedback options are available here.
             </Text>
             </View>
         </View>
