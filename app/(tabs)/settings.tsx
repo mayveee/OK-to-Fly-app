@@ -5,7 +5,8 @@ export default function SettingsScreen() {
     return (
         <ScrollView style={styles.container}>
         <Text style={styles.header}>Settings</Text>
-
+        
+        <Text style={styles.description}>곧 서비스가 제공될 예정입니다</Text>
         <Text style={styles.sectionTitle}>Language Setting</Text>
         <View style={styles.chipRow}>
             <Text style={styles.chip}>한국어</Text>
@@ -41,6 +42,7 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: 'white', padding: 20 },
     header: { fontSize: 20, fontWeight: 'bold', marginBottom: 20 },
+    description: { fontSize: 15, color: '#555', marginBottom: 20 },
     sectionTitle: { fontWeight: '600', marginTop: 20, marginBottom: 10 },
     chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
     chip: {
