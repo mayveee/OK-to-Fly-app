@@ -1,41 +1,44 @@
+import CustomSafeAreaView from '@/components/CustomSafeAreaView';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
-export default function SettingsScreen() {
+export default function Settings() {
     return (
-        <ScrollView style={styles.container}>
-        <Text style={styles.header}>Settings</Text>
-        
-        <Text style={styles.description}>곧 서비스가 제공될 예정입니다</Text>
-        <Text style={styles.sectionTitle}>Language Setting</Text>
-        <View style={styles.chipRow}>
-            <Text style={styles.chip}>한국어</Text>
-            <Text style={styles.chip}>English</Text>
-            <Text style={styles.chip}>日本語</Text>
-        </View>
+        <CustomSafeAreaView>
+            <ScrollView style={styles.container}>
+                <Text style={styles.header}>Settings</Text>
+                
+                <Text style={styles.description}>곧 서비스가 제공될 예정입니다</Text>
+                <Text style={styles.sectionTitle}>Language Setting</Text>
+                <View style={styles.chipRow}>
+                    <Text style={styles.chip}>한국어</Text>
+                    <Text style={styles.chip}>English</Text>
+                    <Text style={styles.chip}>日本語</Text>
+                </View>
 
-        <Text style={styles.sectionTitle}>개인정보 처리방침 & 고객지원</Text>
+                <Text style={styles.sectionTitle}>개인정보 처리방침 & 고객지원</Text>
 
-        <View style={styles.card}>
-            <View style={styles.iconPlaceholder} />
-            <View style={{ flex: 1 }}>
-            <Text style={styles.cardTitle}>개인정보 처리방침</Text>
-            <Text style={styles.cardDesc}>
-                사용자 데이터가 어떻게 처리되고 보호되는지에 대한 정보 확인은 여기서
-            </Text>
-            </View>
-        </View>
+                <View style={styles.card}>
+                    <View style={styles.iconPlaceholder} />
+                    <View style={{ flex: 1 }}>
+                    <Text style={styles.cardTitle}>개인정보 처리방침</Text>
+                    <Text style={styles.cardDesc}>
+                        사용자 데이터가 어떻게 처리되고 보호되는지에 대한 정보 확인은 여기서
+                    </Text>
+                    </View>
+                </View>
 
-        <View style={styles.card}>
-            <View style={styles.iconPlaceholder} />
-            <View style={{ flex: 1 }}>
-            <Text style={styles.cardTitle}>피드백 및 문의</Text>
-            <Text style={styles.cardDesc}>
-                물품 인식에 관한 피드백이나 문의는 여기서
-            </Text>
-            </View>
-        </View>
-        </ScrollView>
+                <View style={styles.card}>
+                    <View style={styles.iconPlaceholder} />
+                    <View style={{ flex: 1 }}>
+                    <Text style={styles.cardTitle}>피드백 및 문의</Text>
+                    <Text style={styles.cardDesc}>
+                        물품 인식에 관한 피드백이나 문의는 여기서
+                    </Text>
+                    </View>
+                </View>
+            </ScrollView>
+        </CustomSafeAreaView>
     );
 }
 

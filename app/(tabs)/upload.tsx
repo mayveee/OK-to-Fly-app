@@ -4,7 +4,8 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Alert, ScrollView, Act
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 import { useResult } from '../../context/ResultContext';
-import { IconSymbol } from '@/components/ui/IconSymbol';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import CustomSafeAreaView from '@/components/CustomSafeAreaView';
 
 export default function Upload() {
     const router = useRouter();
@@ -64,7 +65,7 @@ export default function Upload() {
     };
 
   return (
-    <>
+    <CustomSafeAreaView>
         {isLoading && (
         <View style={styles.loadingOverlay}>
             <View style={styles.loadingPopup}>
@@ -76,12 +77,12 @@ export default function Upload() {
     <ScrollView style={styles.container}>
         <View style={styles.cardRow}>
             <TouchableOpacity style={styles.card} onPress={takePhoto}>
-                <IconSymbol name="camera.fill" size={32} color="#333" />
+                <FontAwesome name="camera" size={32} color="#333" />
                 <Text style={styles.cardText}>사진 촬영하기</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.card} onPress={pickImage}>
-                <IconSymbol name="photo.fill" size={32} color="#333" />
+                <FontAwesome name="photo" size={32} color="#333" />
                 <Text style={styles.cardText}>앨범에서 선택하기</Text>
             </TouchableOpacity>
         </View>
@@ -127,7 +128,7 @@ export default function Upload() {
             </TouchableOpacity>
         )}
     </ScrollView>
-    </>
+    </CustomSafeAreaView>
   );
 }
 

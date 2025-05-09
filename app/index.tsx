@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Image, Animated } from 'react-native';
 import { MotiImage } from 'moti';
 import { router } from 'expo-router';
 
 export default function App() {
+  
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace('/(tabs)/upload'); // 첫 탭으로 이동
-    }, 2000); // 2초 후 이동
+      router.replace('/(tabs)/upload');
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -27,9 +28,6 @@ export default function App() {
           transition={{ type: 'timing', duration: 1000 }}
         />       
         <Text style={styles.title}>OK to Fly</Text>
-        <Text style={styles.description}>
-          기내 반입 금지 물품인지 사진으로 간편하게 확인하세요.
-        </Text>
       </View>
       </ImageBackground>
     </>
@@ -54,10 +52,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#003366',
     marginBottom: 10,
-  },
-  description: {
-    fontSize: 16,
-    color: '#444',
-    textAlign: 'center',
-  },
+  }
 });
