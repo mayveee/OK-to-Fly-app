@@ -4,7 +4,9 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Alert, ScrollView, Act
 import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 import { useResult } from '../../context/ResultContext';
-import { IconSymbol } from '@/components/ui/IconSymbol';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import CustomSafeAreaView from '@/components/CustomSafeAreaView';
+import HelpCard from '@/components/HelpCard';
 
 export default function Upload() {
     const router = useRouter();
@@ -39,8 +41,8 @@ export default function Upload() {
 
     const analyzeImage = async () => {
         if (!base64Data) {
-        Alert.alert('이미지를 먼저 선택하세요.');
-        return;
+            Alert.alert('이미지를 먼저 선택하세요.');
+            return;
         }
 
         try {
@@ -64,7 +66,7 @@ export default function Upload() {
     };
 
   return (
-    <>
+    <CustomSafeAreaView>
         {isLoading && (
         <View style={styles.loadingOverlay}>
             <View style={styles.loadingPopup}>
@@ -72,23 +74,21 @@ export default function Upload() {
             <Text style={styles.loadingText}>분석 요청 중입니다...</Text>
             </View>
         </View>
-    )}
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={styles.container}>
-            <Text style={styles.title}>이미지 업로드</Text>
+        )}
+    <ScrollView style={styles.container}>
+        <View style={styles.cardRow}>
+            <TouchableOpacity style={styles.card} onPress={takePhoto}>
+                <FontAwesome name="camera" size={32} color="#333" />
+                <Text style={styles.cardText}>사진 촬영하기</Text>
+            </TouchableOpacity>
 
-            <View style={styles.cardRow}>
-                <TouchableOpacity style={styles.card} onPress={takePhoto}>
-                    <IconSymbol name="camera.fill" size={32} color="#333" />
-                    <Text style={styles.cardText}>사진 촬영</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.card} onPress={pickImage}>
-                    <IconSymbol name="photo.fill" size={32} color="#333" />
-                    <Text style={styles.cardText}>앨범에서 선택</Text>
-                </TouchableOpacity>
-            </View>
-
+            <TouchableOpacity style={styles.card} onPress={pickImage}>
+                <FontAwesome name="photo" size={32} color="#333" />
+                <Text style={styles.cardText}>앨범에서 선택하기</Text>
+            </TouchableOpacity>
+        </View>
+        {imageUri ?(
+            <>
             <View style={styles.thumbnail}>
                 {imageUri ? (
                     <Image
@@ -97,7 +97,7 @@ export default function Upload() {
                     resizeMode="contain"
                     />
                 ) : (
-                    <Text style={styles.thumbnailText}>이미지를 선택해주세요</Text>
+                    <Text style={styles.thumbnailText}>이미지를 업로드해주세요</Text>
                 )}
             </View>
 
@@ -110,29 +110,39 @@ export default function Upload() {
                     {isLoading ? '분석 중...' : '분석 요청'}
                 </Text>
             </TouchableOpacity>
+            </>
+        ) : (
+            <HelpCard
+                title="짐을 촬영해주세요"
+                description="짐 전체가 나와도 괜찮아요! 다양한 물품을 한 번에 분석할 수 있어요."
+            />
+        )}
 
-            {hasPreviousResult && (
-                <TouchableOpacity
-                    style={styles.recentButton}
-                    onPress={() => router.push('/result')}
-                >
-                    <Text style={styles.recentButtonText}>최근 인식 결과 보기 →</Text>
-                </TouchableOpacity>
-            )}
-        </View>
+        {hasPreviousResult && (
+            <TouchableOpacity
+                style={styles.recentButton}
+                onPress={() => router.push('/result')}
+            >
+                <Text style={styles.recentButtonText}>최근 인식 결과 보기 →</Text>
+            </TouchableOpacity>
+        )}
     </ScrollView>
-    </>
+    </CustomSafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-    container: { padding: 20, backgroundColor: 'white', flex: 1 },
-    title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20 },
+    container: {
+        padding: 20,
+        paddingBottom: 50, 
+        backgroundColor: 'white', 
+        flex: 1 
+    },
     cardRow: {
         flexDirection: 'row',
         gap: 12,
         justifyContent: 'space-between',
-        marginBottom: 20,
+        marginBottom: 10,
     },
     card: {
         flex: 1,
@@ -155,11 +165,7 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         color: '#333',
     },
-    scrollContainer: {
-        backgroundColor: 'white',
-        paddingBottom: 80,
-        flexGrow: 1,
-    },
+    
     imageBox: { marginTop: 20, marginBottom: 20, borderColor: '#ccc'},
     label: { fontSize: 12, marginBottom: 5 },
     thumbnail: {
@@ -192,6 +198,8 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 16,
         borderRadius: 8,
+        borderWidth: 1,
+        borderColor: '#ccc',
         alignItems: 'center',
     },
     recentButtonText: {

@@ -1,10 +1,7 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -12,39 +9,44 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
+        tabBarActiveTintColor: '#1E64DD',
+        tabBarInactiveTintColor: '#999',
         tabBarStyle: {
-          backgroundColor: 'white',
-          borderTopColor: '#ccc',
+          backgroundColor: '#fff',
+          borderTopColor: '#ddd',         
           borderTopWidth: 0.5,
-          height: 60,
-        },        
+          height: 70,
+        },
+        tabBarLabelStyle: {
+          fontSize: 10,
+          fontWeight: '500',
+        },
       }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
       <Tabs.Screen
         name="upload"
         options={{
-          title: 'Upload',
+          title: '업로드',
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="square.and.arrow.up" color={color} />
+            <FontAwesome size={24} name="upload" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="regulationsLink"
+        options={{
+          title: '사이트',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={24} name="external-link" color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: 'Settings',
+          title: '설정',
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="gearshape.fill" color={color} />
+            <FontAwesome size={24} name="gear" color={color} />
           ),
         }}
       />
