@@ -1,5 +1,9 @@
 ## 물건 찍으면 기내 반입 금지 물품 알려주는 서비스
 
+### git clone
+```
+git clone https://github.com/mayveee/ok-to-fly-app-prototype.git
+```
 ### install package
 ```
 npm install
