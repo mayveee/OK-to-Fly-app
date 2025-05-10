@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useResult } from '../../context/ResultContext';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import CustomSafeAreaView from '@/components/CustomSafeAreaView';
+import HelpCard from '@/components/HelpCard';
 
 export default function Upload() {
     const router = useRouter();
@@ -111,12 +112,10 @@ export default function Upload() {
             </TouchableOpacity>
             </>
         ) : (
-            <View style={styles.topcard}>
-                <Text style={styles.cardTitle}>짐을 촬영해주세요</Text>
-                <Text style={styles.cardDesc}>
-                    짐 전체가 나와도 괜찮아요! 다양한 물품을 한 번에 분석할 수 있어요.
-                </Text>
-            </View>
+            <HelpCard
+                title="짐을 촬영해주세요"
+                description="짐 전체가 나와도 괜찮아요! 다양한 물품을 한 번에 분석할 수 있어요."
+            />
         )}
 
         {hasPreviousResult && (
@@ -138,22 +137,6 @@ const styles = StyleSheet.create({
         paddingBottom: 50, 
         backgroundColor: 'white', 
         flex: 1 
-    },
-    topcard: {
-        marginBottom: 10,
-        backgroundColor: '#f1f5f9',
-        padding: 16,
-        borderRadius: 12,
-    },
-    cardTitle: {
-        fontSize: 16,
-        fontWeight: '500',
-        marginBottom: 4,
-    },
-    cardDesc: {
-        fontSize: 14,
-        color: '#555',
-        lineHeight: 20,
     },
     cardRow: {
         flexDirection: 'row',

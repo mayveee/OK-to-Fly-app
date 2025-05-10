@@ -33,6 +33,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="regulationsLink"
+        options={{
+          title: '사이트',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={24} name="external-link" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="settings"
         options={{
           title: '설정',

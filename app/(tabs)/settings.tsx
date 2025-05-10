@@ -1,4 +1,5 @@
 import CustomSafeAreaView from '@/components/CustomSafeAreaView';
+import HelpCard from '@/components/HelpCard';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
@@ -8,7 +9,10 @@ export default function Settings() {
             <ScrollView style={styles.container}>
                 <Text style={styles.header}>Settings</Text>
                 
-                <Text style={styles.description}>곧 서비스가 제공될 예정입니다</Text>
+                <HelpCard
+                    title = "프로토 타입에선 아직 제공되지 않는 기능입니다"
+                    description= '곧 업데이트 될 예정입니다'
+                />
                 <Text style={styles.sectionTitle}>Language Setting</Text>
                 <View style={styles.chipRow}>
                     <Text style={styles.chip}>한국어</Text>
