@@ -8,3 +8,4 @@ npm install
 ```
 npx expo start
 ```
+expo Go 설치 이후 같은 네트워크에 있는 휴대폰으로 QR찍으면 dev버전 볼 수 있음
